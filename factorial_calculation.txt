@@ -1,0 +1,29 @@
+*&---------------------------------------------------------------------*
+*& Report ZFACTORIAL_CALCULATION
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zfactorial_calculation.
+
+PARAMETERS lv_input  TYPE i.
+
+DATA:
+  lv_result  TYPE string VALUE 1,
+  lv_counter TYPE i.
+
+IF lv_input < 0.
+  WRITE: 'The factorial of a negative number is undefined.'.
+ELSEIF lv_input = 0.
+  WRITE: 'The factorial of 0 is 1.'.
+ELSEIF lv_input > 25.
+  WRITE: 'the number is very large'.
+ELSE.
+
+  DO lv_input TIMES.
+    lv_counter = lv_counter + 1.
+    lv_result = lv_result * lv_counter.
+  ENDDO.
+
+
+  WRITE: 'Factorial of a number ', lv_input, ' equals ', lv_result.
+ENDIF.
